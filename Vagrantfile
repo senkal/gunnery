@@ -2,7 +2,7 @@
 # vi: set ft=ruby :
 
 Vagrant.configure("1") do |config|
-  config.vm.box = "ubuntu/trusty64"
+  config.vm.box = "ubuntu/trusty32"
 
   config.vm.host_name = "void"
 #  config.vm.network :bridged
@@ -25,9 +25,8 @@ end
 
 Vagrant.configure("2") do |config|
   config.vm.provider :virtualbox do |vb|
-    #vb.customize ["modifyvm", :id, "--cpuexecutioncap", "25"]
-    vb.customize ["modifyvm", :id, "--memory", 1024]
-    vb.customize ["modifyvm", :id, "--ioapic", "on"]
-    vb.customize ["modifyvm", :id, "--cpus", "2"] 
+    vb.customize ["modifyvm", :id, "--memory", 356]
+    vb.customize ["modifyvm", :id, "--ioapic", "Off"]
+    vb.customize ["modifyvm", :id, "--cpus", "1"]
   end
 end
